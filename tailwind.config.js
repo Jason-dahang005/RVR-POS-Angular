@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'succes-light': '',
+        'success'     : '#00cc00'
+      }
+    },
   },
   plugins: [
     require('daisyui')

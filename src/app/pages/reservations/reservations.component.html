@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="flex justify-between items-center">
+        <h6>Reservations</h6>
+
+        <!-- Open the modal using ID.showModal() method -->
+
+        <button  onclick="my_modal_1.showModal()" class="btn btn-sm bg-blue-500 hover:bg-blue-600 text-[#fff]">
+            <mat-icon>add</mat-icon>
+            <span class="capitalize font-medium">add reservation</span>
+        </button>
+
+        <dialog id="my_modal_1" class="modal">
+            <div class="modal-box w-6/12 max-w-5xl">
+                <h6 class="text-lg font-bold text-center">Add New Reservation</h6>
+                <div class="divider"></div>
+                <form method="dialog">
+                    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                    <label class="form-control w-full">
+                        <div class="label">
+                          <span class="label-text">Full Name</span>
+                        </div>
+                        <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+                      </label>
+
+                      <label class="form-control w-full">
+                        <div class="label">
+                          <span class="label-text"></span>
+                        </div>
+                        <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+                      </label>
+                    <button class="btn w-full bg-green-500 hover:bg-green-600 text-[#fff] tex-2xl capitalize font-medium">submit</button>
+                </form>
+            </div>
+        </dialog>
+    </div>
+    
+    <div class="border p-4">
+        <div class="overflow-x-auto">
+            <table class="table">
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-2/12 font-medium">name</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">contact no.</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">cottage no.</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">payment</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">reserved date</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">remarks</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-2/12 font-medium">actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- row 1 -->
+                <tr>
+                  <td class="border text-center">gazebo</td>
+                  <td class="border text-center">1</td>
+                  <td class="border text-center">10</td>
+                  <td class="border text-center">5</td>
+                  <td class="border text-center">5000</td>
+                  <td class="border text-center">10:00 am</td>
+                  <td class="border text-center">
+                    <button class="btn btn-sm bg-blue-500 text-[#fff] hover:bg-blue-700">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="btn btn-sm bg-red-500 text-[#fff] hover:bg-red-600">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border text-center">gazebo</td>
+                  <td class="border text-center">1</td>
+                  <td class="border text-center">10</td>
+                  <td class="border text-center">5</td>
+                  <td class="border text-center">5000</td>
+                  <td class="border text-center">10:00 am</td>
+                  <td class="border text-center">
+                    <button class="btn btn-sm bg-blue-500 text-[#fff] hover:bg-blue-700">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="btn btn-sm bg-red-500 text-[#fff] hover:bg-red-600">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border text-center">gazebo</td>
+                  <td class="border text-center">1</td>
+                  <td class="border text-center">10</td>
+                  <td class="border text-center">5</td>
+                  <td class="border text-center">5000</td>
+                  <td class="border text-center">10:00 am</td>
+                  <td class="border text-center">
+                    <button class="btn btn-sm bg-blue-500 text-[#fff] hover:bg-blue-700">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="btn btn-sm bg-red-500 text-[#fff] hover:bg-red-600">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+</div>

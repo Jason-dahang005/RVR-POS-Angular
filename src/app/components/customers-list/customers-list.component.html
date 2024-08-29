@@ -1,0 +1,59 @@
+
+<div class="overflow-x-auto">
+  <table class="table overflow-y-scroll">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-2/12 font-medium">type</th>
+        <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-5/12 font-medium">description</th>
+        <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-2/12 font-medium">rate</th>
+        <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-2/12 font-medium">Date created</th>
+        <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @if (isLoading) {
+        <td class="border text-center" colspan="12">
+          <div class="flex items-center justify-center space-x-2">
+            <app-loader/>
+            <span>Loading customers</span>
+          </div>
+        </td>
+      } @else {
+        @if (customersList.length !== 0) {
+          @for (customers of customersList; track $index) {
+            <tr>
+              <td class="border text-center">{{ customers.type }}</td>
+              <td class="border text-center">{{ customers.description }}</td>
+              <td class="border text-center">
+                <span>&#8369;</span>
+                <span>{{ customers.rate }}</span>
+              </td>
+              <td class="border text-center">{{ customers.created_at | date:'mediumDate' }}</td>
+              <td class="border flex justify-center">
+                <button class="btn btn-sm btn-primary" (click)="openModal(customers)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </td>
+            </tr>
+          }
+        } @else {
+          <td class="border text-center" colspan="4">Table is empty</td>
+        }
+      }
+    </tbody>
+  </table>
+  <div class="flex justify-end items-center p-4 space-x-2">
+    <div>
+      <small class="font-medium">Page {{currentPage}} of {{totalPages}}</small>
+    </div>
+    <button class="font-medium border px-2 py-1 hover:bg-gray-100" *ngIf="currentPage > 1" (click)="previousPage()">
+      <span class="capitalize">previous</span>
+    </button>
+    <button class="font-medium border px-2 py-1 hover:bg-gray-100" *ngIf="currentPage < totalPages" (click)="nextPage()">
+      <span class="capitalize">next</span>
+    </button>
+  </div>
+</div>
+
+<app-update-customer-modal/>

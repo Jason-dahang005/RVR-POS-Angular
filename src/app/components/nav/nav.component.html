@@ -1,0 +1,8 @@
+<nav class="mt-5">
+    @for (item of menus; track $index) {
+        <a routerLink="{{ item.link }}" class="flex items-center p-4 gap-4 hover:bg-[#e5e7eb] border-l-8 transition-all ease-out duration-300 capitalize" routerLinkActive="text-[#1e85ae] border-l-[#1e85ae]">
+            <mat-icon>{{ item.icon }}</mat-icon>
+            <span>{{ item.title }}</span>
+        </a>
+    }
+</nav> 

@@ -1,0 +1,55 @@
+<div class="overflow-x-auto">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-3/12 font-medium">type</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-3/12 font-medium">price</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-3/12 font-medium">available</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-4/12 font-medium">Date created</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">Action</th>
+      </thead>
+      <tbody>
+        @if (isLoading) {
+          <td class="border text-center" colspan="5">
+            <div class="flex items-center justify-center space-x-2">
+              <app-loader/>
+              <span>Loading cottages</span>
+            </div>
+          </td>
+        } @else {
+          @if (cottageList.length !== 0) {
+            @for (cottages of cottageList; track $index) {
+              <tr>
+                <td class="border text-center">{{ cottages.type }}</td>
+                <td class="border text-center">
+                  <span>&#8369;</span>
+                  <span>{{ cottages.price }}</span>
+                </td>
+                <td class="border text-center">{{ cottages.available }}</td>
+                <td class="border text-center">{{ cottages.created_at | date:'mediumDate'}}</td>
+                <td class="border">
+                  <button class="btn btn-sm bg-blue-500 text-[#fff] hover:bg-blue-700" (click)="openUpdateCottageModal(cottages)">
+                      <mat-icon>edit</mat-icon>
+                  </button>
+                </td>
+              </tr>
+            }
+          }
+        }
+      </tbody>
+    </table>
+    <div class="flex justify-end items-center p-4 space-x-2">
+      <div>
+        <small class="font-medium">Page {{currentPage}} of {{totalPages}}</small>
+      </div>
+      <button class="font-medium border px-2 py-1 hover:bg-gray-100" *ngIf="currentPage > 1" (click)="previousPage()">
+        <span class="capitalize">previous</span>
+      </button>
+      <button class="font-medium border px-2 py-1 hover:bg-gray-100" *ngIf="currentPage < totalPages" (click)="nextPage()">
+        <span class="capitalize">next</span>
+      </button>
+    </div>
+</div>
+
+<app-update-cottage-modal #updateCottageModalForm/>

@@ -1,0 +1,67 @@
+<button class="btn btn-success btn-sm text-[#fff]" (click)="openModal()">
+    <mat-icon>add</mat-icon>
+    <span class="mt-1 font-medium">Add Customer</span>
+</button>
+
+@if (isSuccess) {
+    <app-success-alert [successMsg]="msg" />
+}
+
+<div #customerModal [ngClass]="{'hidden': modalDisplay}" class="fixed inset-0 bg-[#000] bg-opacity-50 z-50 flex justify-center items-start">
+    <div class="w-[500px] bg-[#fff] relative mt-10 rounded-md">
+        <div class="flex items-center justify-center p-5 border-b">
+            <span class="text-2xl font-medium">Add new customer</span>
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" (click)="closeModal()">✕</button>
+        </div>
+        <div class="py-5 px-7">
+            <form [formGroup]="customerForm" (ngSubmit)="onSubmitCustomers()">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="">
+                        <label for="" class="font-medium text-md capitalize">type</label>
+                        <input
+                            type="text"
+                            name="type"
+                            formControlName="type"
+                            class="w-full border outline-none p-3 rounded-lg h-14 transition-all ease-in-out duration-150  focus:border-blue-300"
+                            placeholder="Enter type here"
+                            autocomplete="off">
+                        <small *ngIf="errorMessage?.type" class="text-error">{{ errorMessage.type }}</small>
+                    </div>
+                    <div class="">
+                        <label for="" class="font-medium text-md capitalize">rate</label>
+                        <input
+                            type="text"
+                            name="rate"
+                            formControlName="rate"
+                            class=" w-full border outline-none p-3 rounded-lg h-14 transition-all ease-in-out duration-150  focus:border-blue-300"
+                            placeholder="Enter rate here"
+                            autocomplete="off">
+                            <small *ngIf="errorMessage?.rate" class="text-error">{{ errorMessage.rate }}</small>
+                    </div>
+                    <div class="col-span-2">
+                        <label for="" class="font-medium text-md capitalize">description</label>
+                        <textarea
+                            name="description"
+                            formControlName="description"
+                            cols="30"
+                            rows="4"
+                            class=" w-full border outline-none p-3 rounded-lg transition-all ease-in-out duration-150 focus:border-blue-300"
+                            placeholder="Enter description here"
+                            autocomplete="off">
+                        </textarea>
+                        <small *ngIf="errorMessage?.description" class="text-error">{{ errorMessage.description }}</small>
+                    </div>
+                    <div class="col-span-2">
+                        <button type="submit" class="btn btn-success text-[#fff] capitalize font-medium w-full">
+                        @if (isLoading) {
+                            <app-loader/>
+                        } @else {
+                            submit
+                        }
+                    </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

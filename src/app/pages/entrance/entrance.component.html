@@ -1,0 +1,139 @@
+<div class="container">
+    <div class="flex justify-between items-center">
+        <h6>Entrance</h6>
+
+        <!-- Open the modal using ID.showModal() method -->
+
+        <button  onclick="my_modal_1.showModal()" class="btn btn-sm bg-blue-500 hover:bg-blue-600 text-[#fff]">
+            <mat-icon>add</mat-icon>
+            <span class="capitalize font-medium">add entry</span>
+        </button>
+
+        <dialog id="my_modal_1" class="modal">
+          <div class="modal-box">
+              <h6 class="text-lg font-bold text-center">Add New Entry</h6>
+              <div class="divider"></div>
+              <form method="dialog">
+                  <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                 <div class="flex-col space-y-2 mb-5">
+                  <label class="form-control grid grid-cols-3 w-full">
+                    <div class="label">
+                      <span class="label-text font-medium capitalize text-lg">cottage</span>
+                    </div>
+                    <div class="flex justify-start items-center col-span-2">
+                      
+                    </div>
+                  </label>
+                  <label class="form-control grid grid-cols-3 w-full">
+                      <div class="label">
+                        <span class="label-text font-medium capitalize text-lg">adults</span>
+                      </div>
+                      <div class="flex justify-start items-center col-span-2">
+                        <button class="btn">-</button>
+                        <input type="text" value="1" min="1" class="input outline-0 input-bordered w-full text-center" />
+                        <button class="btn">+</button>
+                      </div>
+                  </label>
+                  <label class="form-control grid grid-cols-3 w-full">
+                      <div class="label">
+                        <span class="label-text font-medium capitalize text-lg">kids</span>
+                      </div>
+                      <div class="flex justify-start items-center col-span-2">
+                        <button class="btn">-</button>
+                        <input type="text" value="1" min="1" class="input outline-0 input-bordered w-full text-center" />
+                        <button class="btn">+</button>
+                      </div>
+
+                  </label>
+                  <label class="form-control grid grid-cols-3 w-full">
+                      <div class="label">
+                        <span class="label-text font-medium capitalize text-lg">senior</span>
+                      </div>
+                      <div class="flex justify-start items-center col-span-2">
+                        <button class="btn">-</button>
+                        <input type="text" value="1" min="1" class="input outline-0 input-bordered w-full text-center" />
+                        <button class="btn">+</button>
+                      </div>
+
+                  </label>
+                 </div>
+                  <button class="btn w-full bg-green-500 hover:bg-green-600 text-[#fff] tex-2xl capitalize font-medium">submit</button>
+              </form>
+          </div>
+        </dialog>
+    </div>
+    
+    <div class="border p-4">
+        <div class="overflow-x-auto">
+            <table class="table">
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">cottage type</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">cottage no</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">adults</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">kids</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">senior</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">total</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">time of entry</th>
+                  <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-2/12 font-medium">actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- row 1 -->
+                <tr>
+                  <td class="border text-center">gazebo</td>
+                  <td class="border text-center">1</td>
+                  <td class="border text-center">23</td>
+                  <td class="border text-center">10</td>
+                  <td class="border text-center">5</td>
+                  <td class="border text-center">5000</td>
+                  <td class="border text-center">10:00 am</td>
+                  <td class="border text-center">
+                    <button class="btn btn-sm bg-blue-500 text-[#fff] hover:bg-blue-700">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="btn btn-sm bg-red-500 text-[#fff] hover:bg-red-600">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border text-center">gazebo</td>
+                  <td class="border text-center">1</td>
+                  <td class="border text-center">23</td>
+                  <td class="border text-center">10</td>
+                  <td class="border text-center">5</td>
+                  <td class="border text-center">5000</td>
+                  <td class="border text-center">10:00 am</td>
+                  <td class="border text-center">
+                    <button class="btn btn-sm bg-blue-500 text-[#fff] hover:bg-blue-700">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="btn btn-sm bg-red-500 text-[#fff] hover:bg-red-600">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="border text-center">gazebo</td>
+                  <td class="border text-center">1</td>
+                  <td class="border text-center">23</td>
+                  <td class="border text-center">10</td>
+                  <td class="border text-center">5</td>
+                  <td class="border text-center">5000</td>
+                  <td class="border text-center">10:00 am</td>
+                  <td class="border text-center">
+                    <button class="btn btn-sm bg-blue-500 text-[#fff] hover:bg-blue-700">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button class="btn btn-sm bg-red-500 text-[#fff] hover:bg-red-600">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+</div>
