@@ -1,0 +1,41 @@
+<div class="overflow-x-auto">
+    <table class="table table-sm table-pin-cols">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-3/12 font-medium">name</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">no of cottage</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">adults</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">kids</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">senior</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">total</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-1/12 font-medium">time of entry</th>
+          <th class="text-[1rem] text-gray-600 bg-[#99ebff] border text-center capitalize w-2/12 font-medium">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (entrance of entranceList; track $index) {
+          <tr>
+            <td class="border text-center">{{ entrance.name }}</td>
+            <td class="border text-center">1</td>
+            <td class="border text-center">23</td>
+            <td class="border text-center">10</td>
+            <td class="border text-center">5</td>
+            <td class="border text-center">{{ entrance.total }}</td>
+            <td class="border text-center">10:00 am</td>
+            <td class="border text-center">
+              <button class="btn btn-sm bg-primary text-[#fff]">
+                  <mat-icon>edit</mat-icon>
+              </button>
+              <button class="btn btn-sm bg-error text-[#fff]">
+                  <mat-icon>delete</mat-icon>
+              </button>
+              <button class="btn btn-sm bg-success text-[#fff]">
+                <mat-icon>add</mat-icon>
+            </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,105 @@
+<button class="btn btn-sm btn-primary font-medium capitalize" onclick="my_modal_3.showModal()">add new netry</button>
+
+<dialog id="my_modal_3" class="modal">
+  <div class="modal-box w-11/12 max-w-6xl">
+    <form method="dialog" class="px-3 pb-3" [formGroup]="entranceForm" (ngSubmit)="onSubmitCreateEntrance()">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      <h6 class="text-lg font-bold">Entrance</h6>
+      <div class="divider"></div>
+        <div class="grid grid-cols-12 gap-8">
+            <div class="col-span-9 grid grid-cols-12 gap-y-5 gap-x-8">
+                <div class="col-span-12">
+                    <label for="name" class="capitalize font-medium">name</label>
+                    <div class="flex">
+                        <input type="text" formControlName="name" id="name" class="input input-bordered input-accent rounded-none w-full">
+                    </div>
+                </div>
+                <div class="col-span-6">
+                    <div class="text-center w-full pb-2">
+                        <span class="text-lg font-medium">Customers</span>
+                    </div>
+                    <div formArrayName="cc">
+                        <div *ngFor="let c of cc.controls; let i = index" [formGroupName]="i">
+                            <div class="mb-3 flex space-x-4">
+                                <div>
+                                    <label class="label">
+                                        <span class="capitalize font-medium flex justify-between text-sm">{{ customerList[i].type }}</span>
+                                    </label>
+                                    <input type="number" formControlName="count" id="" min="0" value="0" class="input text-center input-bordered input-info rounded-none w-full" (change)="calculateCustomerCountTotal(i)">
+                                </div>
+                                <div>
+                                    <label class="label">
+                                        <span class="capitalize font-medium flex justify-between text-sm">rate</span>
+                                    </label>
+                                    <input type="text" formControlName="rate" id="" min="0" readonly class="input text-center input-bordered rounded-none w-full">
+                                </div>
+                                <div>
+                                    <label class="label">
+                                        <span class="capitalize font-medium flex justify-between text-sm">subtotal</span>
+                                    </label>
+                                    <input type="text" formControlName="subTotal" id="" readonly class="input text-center input-bordered rounded-none w-full">
+                                </div>
+                                <input type="hidden" formControlName="customer_id">
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-6 border-l pl-7">
+                    <div class="text-center w-full pb-2">
+                        <span class="text-lg font-medium">Cottages</span>
+                    </div>
+                    <div formArrayName="bc">
+                        <div *ngFor="let b of bc.controls; let i = index" [formGroupName]="i">
+                            <div class="mb-3 flex space-x-9">
+                                <div class="">
+                                    <label class="capitalize font-medium flex justify-between text-sm">
+                                        <span>{{ cottageList[i].type }}</span>
+                                    </label>
+                                    <input type="number" formControlName="quantity" id="quantity" min="0" class="input text-center input-bordered input-accent rounded-none w-full" (change)="calculateCottageQuantityTotal(i)">
+                                </div>
+                                <div class="">
+                                    <label for="" class="capitalize font-medium flex justify-between text-sm">
+                                        <span>price</span>
+                                    </label>
+                                    <input type="text" readonly formControlName="price" class="input text-center input-bordered rounded-none w-full">
+                                </div>
+                                <div class="">
+                                    <label for="" class="capitalize font-medium flex justify-between text-sm">
+                                        <span>available</span>
+                                    </label>
+                                    <input type="text" readonly formControlName="available" class="input text-center input-bordered rounded-none w-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex col-span-3">
+                <div class="divider divider-horizontal"></div>
+                <div class="w-full flex-col space-y-4">
+                    <div class="">
+                        <label for="total" class="capitalize font-medium">total</label>
+                        <div class="flex">
+                            <input type="text" formControlName="total" id="total" value="0" min="0" readonly class="input input-bordered input-info rounded-none w-full text-right">
+                        </div>
+                    </div>
+                    <div class="">
+                        <label for="cash" class="capitalize font-medium">cash</label>
+                        <div class="flex">
+                            <input type="text" formControlName="cash" id="cash" min="0" class="input input-bordered input-info rounded-none w-full text-right">
+                        </div>
+                    </div>
+                    <div class="">
+                        <label for="change" class="capitalize font-medium">change</label>
+                        <div class="flex">
+                            <input type="text" formControlName="change" id="change" min="0" readonly class="input input-bordered input-info rounded-none w-full text-right">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-error text-[#fff] capitalize w-full font-medium rounded-none" (click)="calculateChange()">calculate</button>
+                    <button type="submit" class="btn btn-success text-[#fff] capitalize w-full font-medium rounded-none">save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>
+</dialog>
