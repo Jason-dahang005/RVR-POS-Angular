@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         'succes-light': '',
         'success'     : '#00cc00'
+      },
+      spacing: {
+        '150':  '75rem'
       }
     },
   },

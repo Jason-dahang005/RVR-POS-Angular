@@ -43,3 +43,9 @@ export interface UpdateCottages {
     price: number,
     available: number
 }
+
+export interface Cottage {
+    id: number,
+    price: number,
+    available: number,
+}

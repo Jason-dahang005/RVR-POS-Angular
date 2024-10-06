@@ -34,7 +34,6 @@ export class CustomersListComponent implements OnInit {
       this.updateModalForm.openUpdateCustomerModal(customers) // get this function from the open update modal function in the component
       //console.log(customers)
     }
-
   }
 
   ngOnInit(): void {
@@ -52,7 +51,7 @@ export class CustomersListComponent implements OnInit {
       }, 1000)
       this.customersList = res.customers.data
       this.totalPages = res.customers.last_page
-      //console.log(res.customers) // console log list of all customers
+      console.log(res.customers) // console log list of all customers
     })
   }
 
